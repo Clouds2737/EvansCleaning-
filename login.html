@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Owner Login</h1>
+  </header>
+
+  <div class="card">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+  </div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+const supabase = createClient(
+  'YOUR_SUPABASE_URL',
+  'YOUR_PUBLIC_ANON_KEY'
+)
+
+document.getElementById("loginBtn").onclick = async () => {
+  const { error } = await supabase.auth.signInWithPassword({
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value
+  })
+
+  if (error) {
+    alert("Login failed")
+  } else {
+    window.location.href = "dashboard.html"
+  }
+}
+</script>
+
+</body>
+</html>
