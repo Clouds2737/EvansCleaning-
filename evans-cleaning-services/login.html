@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Owner Login</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header>
-    <h1>Owner Login</h1>
-  </header>
-
-  <div class="card">
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginBtn">Login</button>
-  </div>
-
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 
@@ -26,8 +8,10 @@ const supabase = createClient(
 
 document.getElementById("loginBtn").onclick = async () => {
   const { error } = await supabase.auth.signInWithPassword({
-    email: document.getElementById("email").value,
-    password: document.getElementById("password").value
+    // PUT YOUR OWNER EMAIL HERE:
+    email: 'kmorning1204@gmail.com',  // <-- replace example@gmail.com with your owner email
+    // PUT YOUR OWNER PASSWORD HERE:
+    password: document.getElementById("Flutter$hy!19").value
   })
 
   if (error) {
@@ -38,6 +22,3 @@ document.getElementById("loginBtn").onclick = async () => {
   }
 }
 </script>
-
-</body>
-</html>
