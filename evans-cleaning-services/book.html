@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Appointment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Book an Appointment</h1>
+  <div>
+    <button onclick="window.location.href='index.html'">Home</button>
+    <button onclick="window.location.href='login.html'">Owner Login</button>
+  </div>
+</header>
+
 <div class="card">
   <input type="text" id="name" placeholder="Your Name">
   <input type="email" id="email" placeholder="Your Email">
@@ -45,6 +61,7 @@ document.getElementById("bookBtn").addEventListener("click", async () => {
     alert("Error booking appointment. Check console.")
   } else {
     alert("Appointment booked successfully!")
+    // Clear fields
     document.getElementById("name").value = ""
     document.getElementById("email").value = ""
     document.getElementById("date").value = ""
@@ -54,3 +71,6 @@ document.getElementById("bookBtn").addEventListener("click", async () => {
   }
 })
 </script>
+
+</body>
+</html>
