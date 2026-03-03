@@ -3,119 +3,128 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f2f5; /* light modern background */
-  color: #1a1a1a;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #6a0dad, #1e3c72);
+  color: #ffffff;
 }
 
 /* Header */
 header {
-  background-color: #ffffff;
   width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
   box-sizing: border-box;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(5px);
 }
 
-/* Header title */
 header h1 {
   font-size: 28px;
   font-weight: 700;
+  color: #ffffff;
 }
 
-/* Buttons in header */
+/* Navigation Buttons */
 header button {
-  background-color: #1a73e8; /* blue */
-  color: #ffffff;
+  background: linear-gradient(90deg, #7b2ff7, #2c3e50);
+  color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   margin-left: 10px;
   font-weight: bold;
   font-size: 16px;
-  border-radius: 6px; /* squareish corners */
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 header button:hover {
-  background-color: #1664c1;
   transform: translateY(-2px);
+  background: linear-gradient(90deg, #2c3e50, #7b2ff7);
 }
 
-/* Container for appointments */
-#appointments {
+/* Container for appointments or booking forms */
+#appointments, .card {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
-/* Appointment cards */
+/* Card */
 .card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  padding: 20px;
-  margin: 15px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 16px;
-}
-
-.card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.card p {
-  margin: 4px 0;
-}
-
-/* Form input styling */
-input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
-  width: 90%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-/* Form card */
-.card form {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  padding: 30px;
+  margin: 20px;
+  max-width: 400px;
+  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Book button style */
-#bookBtn {
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  margin-top: 15px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+/* Card headers */
+.card h3, .card h1 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-align: center;
 }
 
-#bookBtn:hover {
-  background-color: #1664c1;
+/* Paragraph text */
+.card p {
+  margin: 5px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Inputs */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+  width: 90%;
+  padding: 14px;
+  margin: 8px 0;
+  border-radius: 12px;
+  border: 2px solid #7b2ff7;
+  font-size: 16px;
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* Book/Submit buttons */
+button#bookBtn {
+  background: linear-gradient(90deg, #7b2ff7, #2c3e50);
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button#bookBtn:hover {
+  background: linear-gradient(90deg, #2c3e50, #7b2ff7);
   transform: translateY(-2px);
 }
 
-/* Center everything */
+/* Center forms */
 body, html {
   text-align: center;
+  justify-content: flex-start;
+}
+
+/* Footer spacing */
+footer {
+  margin-top: auto;
+  padding: 20px;
+  color: rgba(255,255,255,0.7);
 }
