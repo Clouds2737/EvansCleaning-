@@ -1,12 +1,10 @@
+/* Reset & body */
 body {
-  font-family: 'Comic Sans MS', cursive, sans-serif; /* cartoon style */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('background.jpg'); /* replace with your image */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #003366; /* dark blue text */
+  background-color: #f0f2f5; /* light modern background */
+  color: #1a1a1a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,87 +13,109 @@ body {
 
 /* Header */
 header {
-  background-color: rgba(0, 102, 204, 0.85); /* Bikini Bottom blue */
-  padding: 20px;
-  text-align: center;
-  color: yellow;
-  border-bottom: 4px solid #ffcc00; /* SpongeBob yellow accent */
+  background-color: #ffffff;
   width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
   box-sizing: border-box;
 }
 
-/* Buttons */
-button {
-  background-color: #ffcc00; /* SpongeBob yellow */
-  color: #003366;
+/* Header title */
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Buttons in header */
+header button {
+  background-color: #1a73e8; /* blue */
+  color: #ffffff;
   border: none;
-  padding: 12px 25px;
-  margin: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
   font-weight: bold;
-  font-size: 18px;
-  border-radius: 15px;
+  font-size: 16px;
+  border-radius: 6px; /* squareish corners */
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
 }
 
-button:hover {
-  transform: scale(1.1);
+header button:hover {
+  background-color: #1664c1;
+  transform: translateY(-2px);
 }
 
-/* Cards */
-.card {
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 3px solid #003366;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px;
-  max-width: 450px;
-  box-shadow: 7px 7px 15px rgba(0,0,0,0.4);
-  text-align: center;
-  font-size: 20px;
-}
-
-/* Container for cards */
+/* Container for appointments */
 #appointments {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 30px;
+  padding: 20px;
   width: 100%;
 }
 
-/* Inputs */
-input[type="email"], input[type="password"], input[type="text"], input[type="date"] {
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 12px;
-  border: 3px solid #003366;
-  width: 90%;
-  font-size: 18px;
-  display: block;
-  text-align: center;
+/* Appointment cards */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 20px;
+  margin: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
 }
 
-/* Center form cards */
-.card form, .card div {
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 4px 0;
+}
+
+/* Form input styling */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+  width: 90%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Form card */
+.card form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Page titles */
-h1, h3 {
-  font-size: 36px;
-  margin: 10px 0;
-  text-shadow: 2px 2px #ffcc00;
+/* Book button style */
+#bookBtn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin-top: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-h3 {
-  font-size: 28px;
+#bookBtn:hover {
+  background-color: #1664c1;
+  transform: translateY(-2px);
 }
 
-p {
-  font-size: 20px;
-  margin: 5px 0;
-}
+/* Center everything */
+body, html {
+  text-align: center;
 }
