@@ -19,7 +19,7 @@
   <input type="text" id="name" placeholder="Your Name">
   <input type="email" id="email" placeholder="Your Email">
   <input type="date" id="date">
-  <input type="text" id="service" placeholder="Service">
+  <input type="text" id="details" placeholder="Details / Specifications"> <!-- changed -->
   <input type="text" id="address" placeholder="Address">
   <input type="text" id="phone" placeholder="Phone Number">
   <button id="bookBtn">Book Appointment</button>
@@ -37,11 +37,11 @@ document.getElementById("bookBtn").addEventListener("click", async () => {
   const name = document.getElementById("name").value
   const email = document.getElementById("email").value
   const date = document.getElementById("date").value
-  const service = document.getElementById("service").value
+  const details = document.getElementById("details").value // changed
   const address = document.getElementById("address").value
   const phone = document.getElementById("phone").value
 
-  if (!name || !email || !date || !service || !address || !phone) {
+  if (!name || !email || !date || !details || !address || !phone) {
     alert("Please fill in all fields")
     return
   }
@@ -52,7 +52,7 @@ document.getElementById("bookBtn").addEventListener("click", async () => {
       name,
       email,
       date,
-      service,
+      service: details, // store it in service column (or rename column if you want)
       address,
       phone
     }])
@@ -65,7 +65,7 @@ document.getElementById("bookBtn").addEventListener("click", async () => {
     document.getElementById("name").value = ""
     document.getElementById("email").value = ""
     document.getElementById("date").value = ""
-    document.getElementById("service").value = ""
+    document.getElementById("details").value = "" // changed
     document.getElementById("address").value = ""
     document.getElementById("phone").value = ""
   }
