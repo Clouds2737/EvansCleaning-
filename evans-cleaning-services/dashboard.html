@@ -8,8 +8,10 @@
 
 <header>
   <h1>Evans Cleaning Appointments</h1>
-  <button id="logoutBtn">Logout</button>
-  <button onclick="window.location.href='index.html'">Home</button>
+  <div>
+    <button id="logoutBtn">Logout</button>
+    <button onclick="window.location.href='index.html'">Home</button>
+  </div>
 </header>
 
 <div id="appointments"></div>
@@ -17,27 +19,23 @@
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 
-// Connect to Supabase
 const supabase = createClient(
   'https://okomdlybpmmpggyneluz.supabase.co',
   'sb_publishable_culL2kwxVZ9dj7n71iKYlQ_Znn_BIgF'
 )
 
 async function loadAppointments() {
-  // Check login
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) {
     window.location.href = "login.html"
     return
   }
 
-  // Logout button
   document.getElementById("logoutBtn").addEventListener("click", async () => {
     await supabase.auth.signOut()
     window.location.href = "login.html"
   })
 
-  // Fetch appointments
   const { data, error } = await supabase
     .from('appointments')
     .select('*')
@@ -49,7 +47,6 @@ async function loadAppointments() {
     return
   }
 
-  // Display appointments
   const container = document.getElementById("appointments")
   container.innerHTML = ""
 
@@ -67,7 +64,6 @@ async function loadAppointments() {
   })
 }
 
-// Load appointments on page load
 loadAppointments()
 </script>
 
