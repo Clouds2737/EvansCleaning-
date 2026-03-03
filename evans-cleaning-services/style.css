@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #6a0dad, #1e3c72);
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* blue gradient background */
   color: #ffffff;
 }
 
@@ -31,7 +31,7 @@ header h1 {
 
 /* Navigation Buttons */
 header button {
-  background: linear-gradient(90deg, #7b2ff7, #2c3e50);
+  background: linear-gradient(90deg, #1e90ff, #4682b4); /* blue gradient buttons */
   color: #fff;
   border: none;
   padding: 12px 25px;
@@ -45,7 +45,7 @@ header button {
 
 header button:hover {
   transform: translateY(-2px);
-  background: linear-gradient(90deg, #2c3e50, #7b2ff7);
+  background: linear-gradient(90deg, #4682b4, #1e90ff);
 }
 
 /* Container for appointments or booking forms */
@@ -91,7 +91,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   padding: 14px;
   margin: 8px 0;
   border-radius: 12px;
-  border: 2px solid #7b2ff7;
+  border: 2px solid #1e90ff;
   font-size: 16px;
   text-align: center;
   background: rgba(255,255,255,0.1);
@@ -100,7 +100,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
 
 /* Book/Submit buttons */
 button#bookBtn {
-  background: linear-gradient(90deg, #7b2ff7, #2c3e50);
+  background: linear-gradient(90deg, #1e90ff, #4682b4);
   color: white;
   border: none;
   padding: 14px 25px;
@@ -112,7 +112,7 @@ button#bookBtn {
 }
 
 button#bookBtn:hover {
-  background: linear-gradient(90deg, #2c3e50, #7b2ff7);
+  background: linear-gradient(90deg, #4682b4, #1e90ff);
   transform: translateY(-2px);
 }
 
