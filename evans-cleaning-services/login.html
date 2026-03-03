@@ -1,24 +1,57 @@
-<script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-const supabase = createClient(
-  'https://okomdlybpmmpggyneluz.supabase.co',
-  'sb_publishable_culL2kwxVZ9dj7n71iKYlQ_Znn_BIgF'
-)
+  <header>
+    <h1>Owner Login</h1>
+  </header>
 
-document.getElementById("loginBtn").onclick = async () => {
-  const { error } = await supabase.auth.signInWithPassword({
-    // PUT YOUR OWNER EMAIL HERE:
-    email: 'kmorning1204@gmail.com',  // <-- replace example@gmail.com with your owner email
-    // PUT YOUR OWNER PASSWORD HERE:
-    password: document.getElementById("Flutter$hy!19").value
-  })
+  <div class="card">
+    <input type="email" id="email" placeholder="example@gmail.com">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+  </div>
 
-  if (error) {
-    alert("Login failed")
-    console.error(error)
-  } else {
-    window.location.href = "dashboard.html"
-  }
-}
-</script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+    const supabase = createClient(
+      'https://okomdlybpmmpggyneluz.supabase.co',
+      'sb_publishable_culL2kwxVZ9dj7n71iKYlQ_Znn_BIgF'
+    )
+
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value
+      const password = document.getElementById("password").value
+
+      if (!email || !password) {
+        alert("Please enter email and password")
+        return
+      }
+
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email,
+          password: password
+        })
+
+        if (error) {
+          alert("Login failed: " + error.message)
+          console.error(error)
+        } else {
+          // Login successful → redirect to dashboard
+          window.location.href = "dashboard.html"
+        }
+      } catch (err) {
+        console.error("Unexpected error:", err)
+        alert("Something went wrong. Check console.")
+      }
+    })
+  </script>
+
+</body>
+</html>
