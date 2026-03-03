@@ -1,42 +1,70 @@
-<script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// Connect to your Supabase project
-const supabase = createClient(
-  'https://okomdlybpmmpggyneluz.supabase.co',
-  'sb_publishable_culL2kwxVZ9dj7n71iKYlQ_Znn_BIgF'
-)
+  <header>
+    <h1>Appointments Dashboard</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
 
-// Check if the user is logged in
-const { data: { user }, error: userError } = await supabase.auth.getUser()
+  <div id="appointments"></div>
 
-if (!user) {
-  window.location.href = "login.html"
-}
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 
-// Fetch appointments
-const { data, error } = await supabase
-  .from('appointments')
-  .select('*')
-  .order('created_at', { ascending: false })
+    const supabase = createClient(
+      'https://okomdlybpmmpggyneluz.supabase.co',
+      'sb_publishable_culL2kwxVZ9dj7n71iKYlQ_Znn_BIgF'
+    )
 
-if (error) {
-  console.error("Error fetching appointments:", error)
-  alert("Could not fetch appointments. Check console.")
-}
+    async function loadAppointments() {
+      // Check if the user is logged in
+      const { data: { user }, error: userError } = await supabase.auth.getUser()
+      if (!user) {
+        window.location.href = "login.html"
+        return
+      }
 
-// Display appointments
-const container = document.getElementById("appointments")
-container.innerHTML = "" // clear existing content
+      // Logout button
+      document.getElementById("logoutBtn").addEventListener("click", async () => {
+        await supabase.auth.signOut()
+        window.location.href = "login.html"
+      })
 
-data.forEach(item => {
-  container.innerHTML += `
-    <div class="card">
-      <h3>${item.name}</h3>
-      <p>Email: ${item.email}</p>
-      <p>Date: ${item.date}</p>
-      <p>Service: ${item.service}</p>
-    </div>
-  `
-})
-</script>
+      // Fetch appointments
+      const { data, error } = await supabase
+        .from('appointments')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (error) {
+        console.error("Error fetching appointments:", error)
+        alert("Could not fetch appointments. See console.")
+        return
+      }
+
+      // Display appointments
+      const container = document.getElementById("appointments")
+      container.innerHTML = "" // clear any existing content
+
+      data.forEach(item => {
+        container.innerHTML += `
+          <div class="card">
+            <h3>${item.name}</h3>
+            <p>Email: ${item.email}</p>
+            <p>Date: ${item.date}</p>
+            <p>Service: ${item.service}</p>
+          </div>
+        `
+      })
+    }
+
+    loadAppointments()
+  </script>
+
+</body>
+</html>
