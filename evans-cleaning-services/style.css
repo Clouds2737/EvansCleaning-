@@ -1,48 +1,73 @@
+/* Background & body */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* cartoon style */
   margin: 0;
-  background: #f4f4f4;
+  padding: 0;
+  background-image: url('background.jpg'); /* replace with your .jpg/.png */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #003366; /* dark blue text for readability */
 }
 
+/* Header */
 header {
-  background: #0b3d2e;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav a {
-  color: white;
-  margin-right: 15px;
-  text-decoration: none;
-}
-
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.btn {
-  display: inline-block;
-  background: #0b3d2e;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.card {
-  background: white;
+  background-color: rgba(0, 102, 204, 0.8); /* Bikini Bottom blue */
   padding: 20px;
-  margin: 20px;
-  border-radius: 8px;
+  text-align: center;
+  color: yellow;
+  border-bottom: 4px solid #ffcc00; /* SpongeBob yellow accents */
 }
 
-input, select, button {
-  display: block;
-  margin: 10px 0;
+/* Buttons */
+button {
+  background-color: #ffcc00; /* SpongeBob yellow */
+  color: #003366;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Cards */
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid #003366;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px;
+  max-width: 400px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Container for cards */
+#appointments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Inputs */
+input[type="email"], input[type="password"], input[type="text"], input[type="date"] {
   padding: 10px;
-  width: 100%;
+  margin: 5px 0;
+  border-radius: 10px;
+  border: 2px solid #003366;
+  width: 80%;
+  display: block;
+  font-size: 16px;
+}
+
+/* Center form cards */
+.card form, .card div {
+  text-align: center;
 }
